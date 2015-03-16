@@ -1,0 +1,32 @@
+{
+  "name": "mbo-api",
+  "description": "Implements the MINDBODY Online API.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bicarlsen/mbo-api",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bicarlsen/mbo-api.git"
+  },
+  "bugs": {
+    "url": "http://github.com/bicarlsen/mbo-api/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Brian Carlsen",
+    "email": "carlsen.bri@gmail.com",
+    "url": "http://github.com/bicarlsen/"
+  },
+  "main": "mbo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "directories": {},
+  "dependencies": {
+    "bluebird": "^2.9.13",
+    "soap": "^0.8.0"
+  }
+}
