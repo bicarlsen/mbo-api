@@ -32,11 +32,23 @@ gulp.task( 'lint', function( done ) {
 } );
 
 
+gulp.task( 'set-mbo-env', function( done ) {
+	process.env.mbo_source_name = 'MBOReports';
+	process.env.mbo_source_pass = '2imT8ldj48KsOfXppxppGc0Dk7U=';
+
+	process.env.mbo_user_name = 'Siteowner';
+	process.env.mbo_user_pass = 'apitest1234';
+
+	process.env.mbo_site_id = -99;
+
+	done();
+} );
+
 /**
  * Test files using Mocha.
  * Test code coverage using Istanbul.
  */
-gulp.task( 'test', function( done ) {
+gulp.task( 'run-tests', function( done ) {
 	var coverFiles = [
 		'lib/**/*.js'
 	];
@@ -66,6 +78,7 @@ gulp.task( 'test', function( done ) {
 			} );
 } );
 
+gulp.task( 'test', gulp.series( 'set-mbo-env', 'run-tests' ) );
 
 /**
  * Watch files

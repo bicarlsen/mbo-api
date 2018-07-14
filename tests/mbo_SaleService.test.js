@@ -1,16 +1,16 @@
-var serviceFactory = require( '../lib/mbo_ServiceFactory.js' ),
-	soap = require( 'soap' ),
-	Promise = require( 'bluebird' ),
-	should = require( 'should' );
+var serviceFactory 		= require( '../lib/mbo_ServiceFactory.js' ),
+	soap 				= require( 'soap' ),
+	Promise 			= require( 'bluebird' ),
+	should 				= require( 'should' );
 
 var service,
 	functionNames;
 
-var SOURCE_NAME = 'MBOReports',
-	SOURCE_PASSWORD = '2imT8ldj48KsOfXppxppGc0Dk7U=',
-	USER_NAME = 'Siteowner',
-	USER_PASSWORD = 'apitest1234',
-	SITE_ID = -99;
+var SOURCE_NAME 		= process.env.mbo_source_name,
+	SOURCE_PASSWORD 	= process.env.mbo_source_pass,
+	USER_NAME 			= process.env.mbo_user_name,
+	USER_PASSWORD 		= process.env.mbo_user_pass,
+	SITE_ID 			= process.env.mbo_site_id;
 
 describe( 'MBO Sale Service Unit Tests:', function() {
 

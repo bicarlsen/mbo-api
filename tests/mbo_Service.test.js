@@ -7,12 +7,12 @@ var service,
 	password 	= 'password',
 	siteIds 	= [ -99 ];
 
-var SOURCENAME 		= 'MBOReports',
-	SOURCEPASSWORD 	= '2imT8ldj48KsOfXppxppGc0Dk7U=';
+var SOURCE_NAME 		= process.env.mbo_source_name,
+	SOURCE_PASSWORD 	= process.env.mbo_source_pass;
 
 describe( 'MBO Service Unit Tests:', function() {
 	beforeEach( function( done ) {
-		service = new MBOService( false, SOURCENAME, SOURCEPASSWORD );
+		service = new MBOService( false, SOURCE_NAME, SOURCE_PASSWORD );
 		done();
 	} );
 
@@ -97,8 +97,8 @@ describe( 'MBO Service Unit Tests:', function() {
 				service._setUserCredentialsToDefault();
 				var creds = service.userCredentials;
 
-				creds.username.should.equal( '_' + SOURCENAME );
-				creds.password.should.equal( SOURCEPASSWORD );
+				creds.username.should.equal( '_' + SOURCE_NAME );
+				creds.password.should.equal( SOURCE_PASSWORD );
 
 				done();
 			} );
