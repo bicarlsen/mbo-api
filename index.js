@@ -1,1 +1,1 @@
-var services = require( './services/mbo_ServiceFactory' );
+var services = require( './lib/mbo_ServiceFactory' );
