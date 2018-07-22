@@ -1,0 +1,46 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * @author Brian Carlsen
+<span class='line'>  3</span>  * @version 1.0.0
+<span class='line'>  4</span>  *
+<span class='line'>  5</span>  * Serves as a wrapper to the MINDBODY Staff Service, providing 
+<span class='line'>  6</span>  * some additional functionality.
+<span class='line'>  7</span>  *
+<span class='line'>  8</span>  * All Staff Service methods are available returning
+<span class='line'>  9</span>  * 1) An extracted result using the instance method with the same name
+<span class='line'> 10</span>  * 2) The raw array response using the instance method with the same name post-fixed with 'Response'.
+<span class='line'> 11</span>  * 		The array consists of:
+<span class='line'> 12</span>  * 			i) 		The object represtentation of the SOAP response
+<span class='line'> 13</span>  * 			ii) 	The raw XML SOAP response
+<span class='line'> 14</span>  * 			iii) 	The raw header info of the SOAP response
+<span class='line'> 15</span>  */</span><span class="WHIT">
+<span class='line'> 16</span> 
+<span class='line'> 17</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Promise</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="STRN">'bluebird'</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 18</span> 
+<span class='line'> 19</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">mboService</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="STRN">'./mbo_Service'</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 20</span> 
+<span class='line'> 21</span> </span><span class="COMM">//--------------- StaffService Class ---------------------</span><span class="WHIT">
+<span class='line'> 22</span> 
+<span class='line'> 23</span> 
+<span class='line'> 24</span> </span><span class="COMM">/**
+<span class='line'> 25</span>  * Represents the MINDOBDY Staff Service.
+<span class='line'> 26</span>  *
+<span class='line'> 27</span>  * @constructor
+<span class='line'> 28</span>  * @param  {string} username Username of the MINDBODY client interacting with the service.
+<span class='line'> 29</span>  * @param  {string} password Password of the MINDBODY client interacting with the service.
+<span class='line'> 30</span>  * @return {mbo_StaffService}          Returns the Staff Service.
+<span class='line'> 31</span>  */</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">mbo_StaffService</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">username</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">password</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="WHIT">	</span><span class="NAME">mboService.call</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'StaffService'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">username</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">password</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="NAME">mbo_StaffService.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Object.create</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">mboService.prototype</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="NAME">mbo_StaffService.prototype.constructor</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">mbo_StaffService</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 37</span> 
+<span class='line'> 38</span> 
+<span class='line'> 39</span> </span><span class="NAME">module.exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">mbo_StaffService</span><span class="PUNC">;</span></pre></body></html>

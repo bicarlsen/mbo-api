@@ -67,11 +67,12 @@ mbo_Logger.prototype.setPath = function( path ) {
  *
  * @return {string} Returns the JSON stringified version of the request.
  */
-mbo_Logger.prototype._createLoggerData = function( params, method, result ) {
+mbo_Logger.prototype._createLoggerData = function( service, params, method, result ) {
 	var loggerData = {
-		params: params,
-		method: method,
-		error: 	undefined
+		service: 	service,
+		params: 	params,
+		method: 	method,
+		error: 		undefined
 	};
 
 	var res = result[ method + 'Result' ];

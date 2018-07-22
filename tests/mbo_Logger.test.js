@@ -39,12 +39,14 @@ describe( 'MBO Logger Unit Tests:', function() {
 		} );
 
 		describe( '#_createLoggerData', function() {
-			var params,
+			var service,
+				params,
 				method,
 				result,
 				loggerData;
 
 			before( function( done ) {
+				service = 'Service'
 				params 	= { k1: 'v1', k2: 'v2' };
 				method 	= 'method';
 
@@ -109,6 +111,7 @@ describe( 'MBO Logger Unit Tests:', function() {
 
 		describe( '#_logLocal', function() {
 			var path,
+				service,
 				params,
 				method,
 				result,
@@ -119,6 +122,7 @@ describe( 'MBO Logger Unit Tests:', function() {
 				path = './tests/tmp/test-log.txt';
 				logger.setPath( path );
 
+				service = 'Service',
 				params 	= { k1: 'v1', k2: 'v2' };
 				method 	= 'method';
 
@@ -234,6 +238,7 @@ describe( 'MBO Logger Unit Tests:', function() {
 		var host,
 			path,
 			port,
+			service,
 			params,
 			method,
 			result,
@@ -277,6 +282,7 @@ describe( 'MBO Logger Unit Tests:', function() {
 				logger.setHost( host, port );
 				logger.setPath( path );
 
+				service = 'Service',
 				params 	= { k1: 'v1', k2: 'v2' };
 				method 	= 'method';
 
