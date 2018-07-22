@@ -14,10 +14,32 @@ var SOURCE_NAME 		= process.env.mbo_source_name,
 	SITE_ID 			= process.env.mbo_site_id;
 
 describe( 'MBO Logger Unit Tests:', function() {
+	describe( '#setService', function() {
+		var preName,
+			postName;
+
+		before( function( done ) {
+			preName 	= 'Service';
+			postName 	= 'After'
+			logger 		= new mboLogger( 'local', preName );
+			done();
+		} );
+
+		it( 'should set the Logger service property', function( done ) {
+			logger.service.should.equal( preName );
+			logger.setService( postName );
+			logger.service.should.equal( postName ); 
+
+			done();
+		} );
+	} );
 
 	describe( 'local logging', function() {
+		var service;
+
 		before( function( done ) {
-			logger = new mboLogger( 'local' );
+			service = 'Service'
+			logger = new mboLogger( 'local', service );
 			done();
 		} );
 
@@ -39,20 +61,19 @@ describe( 'MBO Logger Unit Tests:', function() {
 		} );
 
 		describe( '#_createLoggerData', function() {
-			var service,
-				params,
+			var params,
 				method,
 				result,
 				loggerData;
 
 			before( function( done ) {
-				service = 'Service'
 				params 	= { k1: 'v1', k2: 'v2' };
 				method 	= 'method';
 
 				loggerData = {
-					params: params,
-					method: method
+					service: 	service,
+					params: 	params,
+					method: 	method
 				};
 
 				done();
@@ -111,7 +132,6 @@ describe( 'MBO Logger Unit Tests:', function() {
 
 		describe( '#_logLocal', function() {
 			var path,
-				service,
 				params,
 				method,
 				result,
@@ -122,13 +142,13 @@ describe( 'MBO Logger Unit Tests:', function() {
 				path = './tests/tmp/test-log.txt';
 				logger.setPath( path );
 
-				service = 'Service',
 				params 	= { k1: 'v1', k2: 'v2' };
 				method 	= 'method';
 
 				loggerData = {
-					params: params,
-					method: method
+					service: 	service,
+					params: 	params,
+					method: 	method
 				};
 
 				isoPattern = /^\[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z\]/;
@@ -246,7 +266,8 @@ describe( 'MBO Logger Unit Tests:', function() {
 			loggerData;
 
 		before( function( done ) {
-			logger = new mboLogger( 'remote' );
+			service = 'Service';
+			logger = new mboLogger( 'remote', service );
 
 			host = 'localhost';
 			path = '/logger';
@@ -275,20 +296,18 @@ describe( 'MBO Logger Unit Tests:', function() {
 		} );
 
 		describe( '#_logRemote', function() {
-			var server;
-
 			before( function( done ) {
 				path = '/logger';
 				logger.setHost( host, port );
 				logger.setPath( path );
 
-				service = 'Service',
 				params 	= { k1: 'v1', k2: 'v2' };
 				method 	= 'method';
 
 				loggerData = {
-					params: params,
-					method: method
+					service: 	service,
+					params: 	params,
+					method: 	method
 				};
 
 				isoPattern = /^\[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z\]/;
