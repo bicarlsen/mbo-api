@@ -184,3 +184,15 @@ Fri Jul 13 2018 00:10:57 GMT+0200 (Central European Summer Time): {"params":{"k1
 [2018-07-14T17:47:36.262Z] {"params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}
 [2018-07-14T17:48:01.798Z] {"params":{"k1":"v1","k2":"v2"},"method":"method"}
 [2018-07-14T17:48:01.802Z] {"params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}
+[2018-07-22T22:11:56.197Z] {"params":{"k1":"v1","k2":"v2"},"method":"method"}
+[2018-07-22T22:11:56.201Z] {"params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}
+[2018-07-22T22:16:49.205Z] {"params":{"k1":"v1","k2":"v2"},"method":"method"}
+[2018-07-22T22:16:49.209Z] {"params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}
+[2018-07-22T22:19:58.751Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method"}
+[2018-07-22T22:19:58.755Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}
+[2018-07-22T22:22:27.664Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method"}
+[2018-07-22T22:22:27.669Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}
+[2018-07-22T22:24:18.504Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method"}
+[2018-07-22T22:24:18.508Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}
+[2018-07-22T22:25:11.761Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method"}
+[2018-07-22T22:25:11.765Z] {"service":"Service","params":{"k1":"v1","k2":"v2"},"method":"method","error":{"status":"Status","errorCode":400,"message":"Message"}}

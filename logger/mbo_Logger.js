@@ -15,20 +15,31 @@ var fs 		= require( 'fs' ),
  * @param {string} type The type of logger to be used. 
  *		Either 'local' to log to a local file, or
  * 		'remote' to log to a remote server. 
+ * @param {string} service Sets the service associated with the logger.
  *
  * @throws {Error} Throws error if an invalid type parameter is passed.
  */
- function mbo_Logger( type ) {
+ function mbo_Logger( type, service ) {
  	if ( [ 'local', 'remote' ].indexOf( type ) === -1 ) {
  		// invalid type
  		throw new Error( 'Invalid type for mbo_Logger. Must be "local" or "remote".' );
  	}
  	
- 	this.type = type;
- 	this.host = undefined;
- 	this.port = 80;
- 	this.path = undefined;
+ 	this.type 		= type;
+ 	this.service 	= service;
+ 	this.host 		= undefined;
+ 	this.port 		= 80;
+ 	this.path 		= undefined;
  }
+
+ /**
+  * Sets the name of the service.
+  *
+  * @param {string} service The service associated with the logger.
+  */
+ mbo_Logger.prototype.setService = function( service ) {
+ 	this.service = service;
+ };
 
 /**
  * Sets the host and port of the logger. Can only be used for remote loggers."
@@ -67,9 +78,9 @@ mbo_Logger.prototype.setPath = function( path ) {
  *
  * @return {string} Returns the JSON stringified version of the request.
  */
-mbo_Logger.prototype._createLoggerData = function( service, params, method, result ) {
+mbo_Logger.prototype._createLoggerData = function( params, method, result ) {
 	var loggerData = {
-		service: 	service,
+		service: 	this.service,
 		params: 	params,
 		method: 	method,
 		error: 		undefined
