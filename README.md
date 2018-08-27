@@ -3,7 +3,7 @@ MBO API
 
 Description
 -----------
-A library implmenenting communication with the MINDBODY Online [Public API](https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted). Uses a Factory pattern to create SOAP clients that communicate with the API.
+A library implementing communication with the MINDBODY Online [Public API](https://developers.mindbodyonline.com/PublicDocumentation/GettingStarted). Uses a Factory pattern to create SOAP clients that communicate with the API.
 
 Installation
 ------------
@@ -17,10 +17,10 @@ Use
 #### Set Up
 To set up the services you first `require` the package in your code, creating the service factory.
 ```javascript
-var mboFactory = require( 'mob-api' );
+var mboFactory = require( 'mbo-api' );
 ```
 You must then set the [source credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication) from your MINDBODY Online Developers account.
-> Noe that versions 1.X of this package use Source Credentials to authenticate requests to the server. In version 6 of the API, this will become depreicated and authentication will shift to API Keys.
+> Note that versions 1.X of this package use Source Credentials to authenticate requests to the server. In version 6 of the API, this will become depreicated and authentication will shift to API Keys.
 ```javascript
 mboFactory.setSourceCredentials( <SOURCENAME>, <PASSWORD> );
 ```
