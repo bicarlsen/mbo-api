@@ -34,7 +34,7 @@ There are [5 services](https://developers.mindbodyonline.com/PublicDocumentation
 * Site
 * Staff
 
-To create an instance of a service you use the `create<Service>Service` or `create<Service>ServiceAsync` functions. The former return the service immediately, while the latter return an A+ Promise resolved with the service. It is highly recommended to use the `Async` versions of creation.
+To create an instance of a service you use the `create<Service>Service` or `create<Service>ServiceAsync` functions. The former returns the service immediately, while the latter returns an A+ Promise resolved with the service. It is highly recommended to use the `Async` versions of creation.
 ```javascript
 var clientService = mboFactory.createClientService();
 clientService.on( 'ready', callback )
@@ -79,7 +79,7 @@ In addition, multiple custom functions have been implemented for common tasks pe
 
 * **`getClientIndexValues( <id> )`**: Returns an A+ Promise resolved to an array of objects represting the [Client Index Values](https://support.mindbodyonline.com/s/article/203259183-Client-Indexes) of the client with id `id`. Each object has the form `{ index: { id, name }, value: { id, name } }`. Client Indexes which do not have an assigned value are excluded.
 
-* **`getCleintAccountBalancesById( <ids> )`**: Returns an A+ Promise resolved to an object with keys `ids` and values of those client's account balances. Acts as a wrapper for the [`GetClientAccountBalances`](https://developers.mindbodyonline.com/PublicDocumentation/ClientService) API function.
+* **`getClientAccountBalancesById( <ids> )`**: Returns an A+ Promise resolved to an object with keys `ids` and values of those client's account balances. Acts as a wrapper for the [`GetClientAccountBalances`](https://developers.mindbodyonline.com/PublicDocumentation/ClientService) API function.
 
 ##### Site Service
 > The `GetActivationCodes` function has been slightly modified for ease of use. As opposed to the return value described by the WSDL, it returns an A+ Promised resolved to an object of the form `{ ActivationCode: <activation code>, ActivationLink: <activation link> }`.
@@ -89,7 +89,7 @@ In addition, multiple custom functions have been implemented for common tasks pe
 * **`hasSiteAccess( <id> )`**: Returns an A+ Promise resolved to `true` or `false` of whether provided credentials have access to the site identified by `id`.
 
 ##### Common Functions
-These are function that all the services have.
+These are functions that all the services have.
 * **`setUserCredentials( <username>, <password>, <siteIds> )`**: Sets the [User Credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication#user-credentials) for authentication of calls that require them.
 
 * **`useDefaultCredentials()`**: Sets the [User Credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication#user-credentials) to the default, which are the Source Credentials, with the username prepended with an underscore.
@@ -105,6 +105,6 @@ The MBO API package uses events to notify you when your service is ready to be u
 
 Logging
 -------
-The `mbo-api` package enables logging metadata of teh call the API makes for use in statistics and debugging. There are two types of logging. Setting the `type` parameter to `'local'` will log the metadata to the local file given in `path`. Setting the `type` parameter to `remote` will send the metadata via an `http` request to `host:port/path`. `type` can also be set to false to disable logging.
+The `mbo-api` package enables logging metadata of the calls the API makes for use in statistics and debugging. There are two types of logging. Setting the `type` parameter to `'local'` will log the metadata to the local file given in `path`. Setting the `type` parameter to `remote` will send the metadata via an `http` request to `host:port/path`. `type` can also be set to false to disable logging.
 
 The metadata is stored or sent as a JSON string with keys `service`, `params`, `method`, `error`. `service` is the name of the service being used. `params` describes both the [common call parameters](https://developers.mindbodyonline.com/PublicDocumentation/WorkingWithSOAP), and the method specifc parameters used in the call. `method` was the method called on the service. `error` is `undefined` unless an error occurred, in which case it is an object with keys `status`, `errorCode`, and `message`.
