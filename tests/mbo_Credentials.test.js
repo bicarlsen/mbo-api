@@ -25,7 +25,7 @@ describe( 'MBO Credentials Unit Tests:', function() {
 				done();
 			} );
 
-			describe( 'Using SourceName and Password', function() {
+			describe( 'Using SourceName and Password (for API versions less than 6.0)', function() {
 				before( function( done ) {
 					creds = new Credentials( 
 						{ 
@@ -44,7 +44,7 @@ describe( 'MBO Credentials Unit Tests:', function() {
 					creds.credentials.sourceCredentials.should.eql( {
 						username: username, 
 						password: password 
-					} )
+					} );
 
 					done();
 				} );
@@ -53,6 +53,35 @@ describe( 'MBO Credentials Unit Tests:', function() {
 					creds.authentication.should.eql( {
 						sourceCredentials: true,
 						apiKey: false
+					} );
+
+					done();
+				} );
+
+			} );
+
+			describe( 'Using API key (for API versions starting at 6.0)', function() {
+				before( function( done ) {
+					creds = new Credentials(
+						{ apiKey: apikey },
+
+						siteIds,
+						type
+					);
+
+					done();
+				} );
+
+				it( 'should have the proper credentials', function( done ) {
+					creds.credentials.apiKey.should.eql( apikey );
+
+					done();
+				} );
+
+				it( 'should have the correct authentication methods', function( done ) {
+					creds.authentication.should.eql( {
+						sourceCredentials: false,
+						apiKey: true
 					} );
 
 					done();

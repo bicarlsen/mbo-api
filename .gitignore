@@ -2,3 +2,4 @@ node_modules/
 *.sublime*
 coverage/
 tests/tmp
+tests/raw.js

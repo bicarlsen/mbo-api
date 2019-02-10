@@ -21,8 +21,10 @@ var mboFactory = require( 'mbo-api' );
 ```
 You must then set the [source credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication) from your MINDBODY Online Developers account.
 > Note that versions 1.X of this package use Source Credentials to authenticate requests to the server. In version 6 of the API, this will become depreicated and authentication will shift to API Keys.
+> When using API Key authentication, only one site id may be used.
 ```javascript
 mboFactory.setSourceCredentials( <SOURCENAME>, <PASSWORD> );
+mboFactory.setApiKey( <API KEY>)
 ```
 The factory is now ready for use :)
 
@@ -65,6 +67,18 @@ siteService.GetActivationCodeResponse()
 
 In addition, multiple custom functions have been implemented for common tasks performed in each of the services. These are differentiated from the API defined function by beginning with a lower case letter.
 
+##### Common Functions
+These are functions that all the services have.
+* **`setUserCredentials( <username>, <password>, <siteIds> )`**: Sets the [User Credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication#user-credentials) for authentication of calls that require them.
+
+* **`useDefaultCredentials()`**: Sets the [User Credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication#user-credentials) to the default, which are the Source Credentials, with the username prepended with an underscore.
+
+* **`addSiteIds( <siteIds> )`**: Adds the provided site ids to the service for interaction.
+
+* **`defaultParam( <key>, [<value>] )`**: Gets or sets the default value of the [common call parameter](https://developers.mindbodyonline.com/PublicDocumentation/WorkingWithSOAP) `<key>`.  
+
+* **`log( <type>, <path>, <host>, <port> )`**: Enables or disables logging for the service. See below for more details.
+
 ##### Class Service
 * **`getClassAttendees( <classId> )`**: Returns an A+ Promis resolved with the ids of clients who attended the class identified by `classId`. 
 
@@ -87,18 +101,6 @@ In addition, multiple custom functions have been implemented for common tasks pe
 * **`getActivationCodes()`**: Returns an A+ Promise resolved to an an object of the form `{ code: <activation code>, link: <activation link> }`.
 
 * **`hasSiteAccess( <id> )`**: Returns an A+ Promise resolved to `true` or `false` of whether provided credentials have access to the site identified by `id`.
-
-##### Common Functions
-These are functions that all the services have.
-* **`setUserCredentials( <username>, <password>, <siteIds> )`**: Sets the [User Credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication#user-credentials) for authentication of calls that require them.
-
-* **`useDefaultCredentials()`**: Sets the [User Credentials](https://developers.mindbodyonline.com/PublicDocumentation/Authentication#user-credentials) to the default, which are the Source Credentials, with the username prepended with an underscore.
-
-* **`addSiteIds( <siteIds> )`**: Adds the provided site ids to the service for interaction.
-
-* **`defaultParam( <key>, [<value>] )`**: Gets or sets the default value of the [common call parameter](https://developers.mindbodyonline.com/PublicDocumentation/WorkingWithSOAP) `<key>`.  
-
-* **`log( <type>, <path>, <host>, <port> )`**: Enables or disables logging for the service. See below for more details.
 
 ##### Events
 The MBO API package uses events to notify you when your service is ready to be used. When the service is first created it will emit an `initialized` event. However, the service is not ready to be used until the `ready` event is emitted.

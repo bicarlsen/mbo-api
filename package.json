@@ -13,7 +13,9 @@
   "license": "ISC",
   "keywords": [
     "mbo",
-    "mindbody"
+    "mindbody",
+    "mindbodyonline",
+    "mindbody online"
   ],
   "author": {
     "name": "Brian Carlsen",
@@ -30,21 +32,21 @@
   },
   "directories": {},
   "dependencies": {
-    "bluebird": "3.x",
+    "bluebird": "^3.5.3",
     "soap": "^0.24.0"
   },
   "devDependencies": {
-    "fancy-log": "^1.3.2",
+    "fancy-log": "^1.3.3",
     "gulp": "4.x",
     "gulp-env": "^0.4.0",
     "gulp-istanbul": "1.x",
     "gulp-jshint": "^2.1.0",
     "gulp-mocha": "6.x",
     "gulp-util": "^3.0.8",
-    "jshint": "^2.9.5",
+    "jshint": "^2.10.1",
     "jshint-stylish": "^2.2.1",
     "should": "^5.2.0",
-    "sinon": "^6.1.3",
-    "supertest": "3.x"
+    "sinon": "^6.3.5",
+    "supertest": "^3.4.2"
   }
 }
